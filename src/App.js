@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
+
+import "./App.css";
+import DataForm from "./container/DataForm";
+import DataView from "./container/DataView";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <h1>Data Detail</h1>
+      </div>
+      <ul>
+        <li>
+          <NavLink to="/">Data Form</NavLink>
+        </li>
+        <li>
+          <NavLink to="/dataView">Data View</NavLink>
+        </li>
+      </ul>
+      <Switch>
+        <Route exact path="/" component={DataForm} />
+        <Route path="/dataView" component={DataView} />
+      </Switch>
+    </Router>
   );
 }
 
